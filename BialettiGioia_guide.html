@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disassembly Guide - Bialetti Gioia</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --warning-bg: #fff3cd;
+            --warning-border: #ffeeba;
+            --warning-text: #856404;
+            --border-color: #dddddd;
+        }
+        [data-theme="dark"] {
+            --bg-color: #1e1e24;
+            --card-bg: #2a2a35;
+            --text-color: #e0e0e0;
+            --primary-color: #34495e;
+            --accent-color: #ff6b6b;
+            --warning-bg: #3a331a;
+            --warning-border: #66511a;
+            --warning-text: #ffe082;
+            --border-color: #444455;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; margin-bottom: 20px; }
+        h1 { margin: 0; color: var(--accent-color); }
+        .theme-toggle { background-color: var(--primary-color); color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .warning-box { background-color: var(--warning-bg); border: 1px solid var(--warning-border); color: var(--warning-text); padding: 15px; border-radius: 5px; margin-bottom: 25px; }
+        .step-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; }
+        .step-header { background-color: var(--primary-color); color: white; padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .step-content { padding: 20px; display: block; }
+        .tools-badge { background-color: var(--accent-color); color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.9em; display: inline-block; margin-bottom: 10px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        .resume-text { color: var(--accent-color); font-weight: bold; margin-top: 15px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Disassembly Wizard: Bialetti Gioia</h1>
+            <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+        </header>
+<div class="steps-container">
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <span>Action 1: Open outer shell (From: Bialetti Gioia)</span>
+                <span>▼</span>
+            </div>
+            <div class="step-content">
+        <div class="tools-badge">Tools Required: Soft cloth, Torx T10 screwdriver, Phillips PH1 screwdriver, Plastic pry tool, Hands</div><ul><li>Place the machine upside-down on a soft cloth so the bottom plate is accessible; remove any residual water from the tank seat to avoid leaks.</li><li>Unscrew the 4 Torx T10 screws located at the corners of the bottom plate.</li><li>Unscrew the 2 Phillips PH1 screws behind the rear panel, near the power-cord grommet.</li><li>Release the 4 internal plastic clips along the vertical edges by gently prying with a flat plastic tool.</li><li>Lift the upper shell vertically, keeping it parallel to the base, to separate it from the internal chassis.</li></ul><p class="resume-text">➡️ Then resume disassembling from: "Chassis (full)"</p></div></div>
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <span>Action 2: Remove user parts (From: Chassis (full))</span>
+                <span>▼</span>
+            </div>
+            <div class="step-content">
+        <div class="tools-badge">Tools Required: Hands, Phillips PH1 screwdriver</div><ul><li>Lift out the 0.5 L removable water tank from its seat at the rear of the machine.</li><li>Pull out the used-capsule drawer from the front-bottom slot.</li><li>Release the 2 Phillips PH1 screws of the capsule lever / brewing-group assembly and lift it out.</li></ul><p class="resume-text">➡️ Then resume disassembling from: "Chassis (no user parts)"</p></div></div>
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <span>Action 3: Remove control panel (From: Chassis (no user parts))</span>
+                <span>▼</span>
+            </div>
+            <div class="step-content">
+        <div class="tools-badge">Tools Required: JST connector tool, Phillips PH0 screwdriver, Hands</div><ul><li>Unplug the JST-XH 4-pin connector that links the front button board to the main PCB; press the latch before pulling.</li><li>Unplug the JST-PH 2-pin connector of the aluminium-capsule sensor, located just behind the capsule lever assembly.</li><li>Unscrew the 2 Phillips PH0 screws that hold the button panel to the front of the chassis.</li><li>Slide the button panel forward and lift it out together with the integrated LED indicators and the capsule sensor.</li></ul><p class="resume-text">➡️ Then resume disassembling from: "Chassis (no panel)"</p></div></div>
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <span>Action 4: Extract hydraulic circuit (From: Chassis (no panel))</span>
+                <span>▼</span>
+            </div>
+            <div class="step-content">
+        <div class="tools-badge">Tools Required: Container, Hose clamp pliers, Hands, Phillips PH1 screwdriver</div><ul><li>Place a container under the chassis to catch ~30 mL of residual water that will drip from the tubing during removal.</li><li>Release the spring clamp on the silicone tube from the tank valve to the pump inlet; slide the tube off the barb.</li><li>Release the spring clamps on the silicone tubes from the pump outlet to the flow meter, and from the flow meter to the thermoblock inlet.</li><li>Unplug the 2-pin power connector that supplies the pump from the main PCB.</li><li>Unscrew the 2 Phillips PH1 screws holding the pump bracket to the chassis, then lift the pump together with the flow meter and the tubing as a single hydraulic assembly.</li></ul><p class="resume-text">➡️ Then resume disassembling from: "Chassis (no hydraulic)"</p></div></div>
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <span>Action 5: Extract PCB & wiring (From: Chassis (no hydraulic))</span>
+                <span>▼</span>
+            </div>
+            <div class="step-content">
+        <div class="tools-badge">Tools Required: JST connector tool, Phillips PH0 screwdriver, Side cutters, Hands</div><ul><li>Unplug all remaining JST connectors from the main PCB: thermostat lead, thermoblock heater lead, pump triac lead.</li><li>Disconnect the mains input wires from the PCB screw terminals (LIVE / NEUTRAL / EARTH).</li><li>Cut any cable ties that fix the wiring harness to the chassis ribs.</li><li>Unscrew the 4 Phillips PH0 screws securing the PCB to its plastic tray and lift the board out.</li><li>Pull the wiring harness and the power cord through the chassis cut-out as a single bundle.</li></ul><p class="resume-text">➡️ Then resume disassembling from: "Chassis (only thermoblock)"</p></div></div>
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <span>Action 6: Extract thermoblock (From: Chassis (only thermoblock))</span>
+                <span>▼</span>
+            </div>
+            <div class="step-content">
+        <div class="tools-badge">Tools Required: Heat-resistant gloves (precaution), Hands, 10 mm wrench, Phillips PH1 screwdriver</div><ul><li>Verify the machine has been unplugged for at least 30 minutes so the thermoblock has fully cooled before touching the metal body.</li><li>Disconnect the two faston terminals of the heating element from the harness, and the 2-pin JST of the safety thermostat.</li><li>Unscrew the brass nut at the thermoblock outlet (towards the brew chamber) using a 10 mm wrench; keep a cloth nearby for residual drips.</li><li>Unscrew the 2 Phillips PH1 screws of the thermoblock bracket on the chassis side wall.</li><li>Lift the thermoblock assembly vertically out of its seat.</li></ul><p class="resume-text">➡️ Then resume disassembling from: "Thermoblock assembly"</p></div></div>
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <span>Action 7: Disassemble thermoblock (From: Thermoblock assembly)</span>
+                <span>▼</span>
+            </div>
+            <div class="step-content">
+        <div class="tools-badge">Tools Required: Bench vice with soft jaws, Hex key (typically 4 mm), Soft mallet, Press / saw (destructive option)</div><ul><li>Clamp the aluminium body in a bench vice with soft jaws to avoid marking the surface; keep the heating-element side accessible.</li><li>Unscrew the safety thermostat from its threaded seat on the body; it comes out as a single threaded brass capsule.</li><li>Push out the heating element from its dedicated tunnel inside the aluminium body, gently tapping with a soft mallet if needed.</li><li>Separate the stainless-steel tube (water path) from the aluminium body; depending on the design, this may require a press or destructive cut.</li></ul></div></div>
+        </div>
+    </div>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+            }
+        }
+        function toggleStep(headerElement) {
+            const content = headerElement.nextElementSibling;
+            const arrow = headerElement.querySelector('span:last-child');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                arrow.innerText = '▼';
+            } else {
+                content.style.display = 'none';
+                arrow.innerText = '►';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,768 @@
+{
+  "schema_version": "1.0",
+  "product": {
+    "node_id": 1,
+    "name": "Bialetti Gioia",
+    "weight": 2500.0,
+    "weight_unit": "g",
+    "material": null,
+    "color": null,
+    "image": null,
+    "kept_whole": false,
+    "contained_leaf_count": null
+  },
+  "depth": {
+    "mode": "full",
+    "keep_whole_ids": []
+  },
+  "steps": [
+    {
+      "index": 1,
+      "operation": "Open outer shell",
+      "actions": [
+        {
+          "node_id": 3,
+          "text": "Place the machine upside-down on a soft cloth so the bottom plate is accessible; remove any residual water from the tank seat to avoid leaks.",
+          "tools": "Soft cloth",
+          "image": null
+        },
+        {
+          "node_id": 4,
+          "text": "Unscrew the 4 Torx T10 screws located at the corners of the bottom plate.",
+          "tools": "Torx T10 screwdriver",
+          "image": null
+        },
+        {
+          "node_id": 5,
+          "text": "Unscrew the 2 Phillips PH1 screws behind the rear panel, near the power-cord grommet.",
+          "tools": "Phillips PH1 screwdriver",
+          "image": null
+        },
+        {
+          "node_id": 6,
+          "text": "Release the 4 internal plastic clips along the vertical edges by gently prying with a flat plastic tool.",
+          "tools": "Plastic pry tool",
+          "image": null
+        },
+        {
+          "node_id": 7,
+          "text": "Lift the upper shell vertically, keeping it parallel to the base, to separate it from the internal chassis.",
+          "tools": "Hands",
+          "image": null
+        }
+      ],
+      "outputs": [
+        {
+          "node_id": 8,
+          "name": "Outer shell",
+          "weight": 260.0,
+          "weight_unit": "g",
+          "material": "ABS (50% PCR on Responsible variant)",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        }
+      ],
+      "continues_as": {
+        "node_id": 9,
+        "name": "Chassis (full)",
+        "weight": 2240.0,
+        "weight_unit": "g",
+        "material": null,
+        "color": null,
+        "image": null,
+        "kept_whole": false,
+        "contained_leaf_count": null
+      },
+      "tools_required": [
+        "Soft cloth",
+        "Torx T10 screwdriver",
+        "Phillips PH1 screwdriver",
+        "Plastic pry tool",
+        "Hands"
+      ]
+    },
+    {
+      "index": 2,
+      "operation": "Remove user parts",
+      "actions": [
+        {
+          "node_id": 57,
+          "text": "Lift out the 0.5 L removable water tank from its seat at the rear of the machine.",
+          "tools": "Hands",
+          "image": null
+        },
+        {
+          "node_id": 58,
+          "text": "Pull out the used-capsule drawer from the front-bottom slot.",
+          "tools": "Hands",
+          "image": null
+        },
+        {
+          "node_id": 59,
+          "text": "Release the 2 Phillips PH1 screws of the capsule lever / brewing-group assembly and lift it out.",
+          "tools": "Phillips PH1 screwdriver",
+          "image": null
+        }
+      ],
+      "outputs": [
+        {
+          "node_id": 60,
+          "name": "Water tank",
+          "weight": 150.0,
+          "weight_unit": "g",
+          "material": "SAN / transparent ABS + silicone valve",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 61,
+          "name": "Capsule drawer",
+          "weight": 60.0,
+          "weight_unit": "g",
+          "material": "ABS + stainless grid",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 62,
+          "name": "Capsule lever",
+          "weight": 130.0,
+          "weight_unit": "g",
+          "material": "Glass-filled nylon + stainless piercing plate + silicone seals",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        }
+      ],
+      "continues_as": {
+        "node_id": 55,
+        "name": "Chassis (no user parts)",
+        "weight": 1900.0,
+        "weight_unit": "g",
+        "material": null,
+        "color": null,
+        "image": null,
+        "kept_whole": false,
+        "contained_leaf_count": null
+      },
+      "tools_required": [
+        "Hands",
+        "Phillips PH1 screwdriver"
+      ]
+    },
+    {
+      "index": 3,
+      "operation": "Remove control panel",
+      "actions": [
+        {
+          "node_id": 11,
+          "text": "Unplug the JST-XH 4-pin connector that links the front button board to the main PCB; press the latch before pulling.",
+          "tools": "JST connector tool",
+          "image": null
+        },
+        {
+          "node_id": 12,
+          "text": "Unplug the JST-PH 2-pin connector of the aluminium-capsule sensor, located just behind the capsule lever assembly.",
+          "tools": "JST connector tool",
+          "image": null
+        },
+        {
+          "node_id": 13,
+          "text": "Unscrew the 2 Phillips PH0 screws that hold the button panel to the front of the chassis.",
+          "tools": "Phillips PH0 screwdriver",
+          "image": null
+        },
+        {
+          "node_id": 14,
+          "text": "Slide the button panel forward and lift it out together with the integrated LED indicators and the capsule sensor.",
+          "tools": "Hands",
+          "image": null
+        }
+      ],
+      "outputs": [
+        {
+          "node_id": 15,
+          "name": "Button panel",
+          "weight": 35.0,
+          "weight_unit": "g",
+          "material": "FR-4 PCB + tactile switches + LEDs + ABS cover",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 16,
+          "name": "Capsule sensor",
+          "weight": 18.0,
+          "weight_unit": "g",
+          "material": "Copper coil + ferrite core + plastic housing",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        }
+      ],
+      "continues_as": {
+        "node_id": 17,
+        "name": "Chassis (no panel)",
+        "weight": 1847.0,
+        "weight_unit": "g",
+        "material": null,
+        "color": null,
+        "image": null,
+        "kept_whole": false,
+        "contained_leaf_count": null
+      },
+      "tools_required": [
+        "JST connector tool",
+        "Phillips PH0 screwdriver",
+        "Hands"
+      ]
+    },
+    {
+      "index": 4,
+      "operation": "Extract hydraulic circuit",
+      "actions": [
+        {
+          "node_id": 19,
+          "text": "Place a container under the chassis to catch ~30 mL of residual water that will drip from the tubing during removal.",
+          "tools": "Container",
+          "image": null
+        },
+        {
+          "node_id": 20,
+          "text": "Release the spring clamp on the silicone tube from the tank valve to the pump inlet; slide the tube off the barb.",
+          "tools": "Hose clamp pliers",
+          "image": null
+        },
+        {
+          "node_id": 21,
+          "text": "Release the spring clamps on the silicone tubes from the pump outlet to the flow meter, and from the flow meter to the thermoblock inlet.",
+          "tools": "Hose clamp pliers",
+          "image": null
+        },
+        {
+          "node_id": 22,
+          "text": "Unplug the 2-pin power connector that supplies the pump from the main PCB.",
+          "tools": "Hands",
+          "image": null
+        },
+        {
+          "node_id": 23,
+          "text": "Unscrew the 2 Phillips PH1 screws holding the pump bracket to the chassis, then lift the pump together with the flow meter and the tubing as a single hydraulic assembly.",
+          "tools": "Phillips PH1 screwdriver",
+          "image": null
+        }
+      ],
+      "outputs": [
+        {
+          "node_id": 24,
+          "name": "Vibration pump",
+          "weight": 185.0,
+          "weight_unit": "g",
+          "material": "Steel body, copper winding, brass fittings, rubber dampers",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 25,
+          "name": "Silicone tubing",
+          "weight": 22.0,
+          "weight_unit": "g",
+          "material": "Food-grade silicone + zinc-plated steel spring clamps",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 26,
+          "name": "Flow meter",
+          "weight": 28.0,
+          "weight_unit": "g",
+          "material": "ABS housing + ceramic shaft + Hall sensor PCB",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        }
+      ],
+      "continues_as": {
+        "node_id": 27,
+        "name": "Chassis (no hydraulic)",
+        "weight": 1612.0,
+        "weight_unit": "g",
+        "material": null,
+        "color": null,
+        "image": null,
+        "kept_whole": false,
+        "contained_leaf_count": null
+      },
+      "tools_required": [
+        "Container",
+        "Hose clamp pliers",
+        "Hands",
+        "Phillips PH1 screwdriver"
+      ]
+    },
+    {
+      "index": 5,
+      "operation": "Extract PCB & wiring",
+      "actions": [
+        {
+          "node_id": 29,
+          "text": "Unplug all remaining JST connectors from the main PCB: thermostat lead, thermoblock heater lead, pump triac lead.",
+          "tools": "JST connector tool",
+          "image": null
+        },
+        {
+          "node_id": 30,
+          "text": "Disconnect the mains input wires from the PCB screw terminals (LIVE / NEUTRAL / EARTH).",
+          "tools": "Phillips PH0 screwdriver",
+          "image": null
+        },
+        {
+          "node_id": 31,
+          "text": "Cut any cable ties that fix the wiring harness to the chassis ribs.",
+          "tools": "Side cutters",
+          "image": null
+        },
+        {
+          "node_id": 32,
+          "text": "Unscrew the 4 Phillips PH0 screws securing the PCB to its plastic tray and lift the board out.",
+          "tools": "Phillips PH0 screwdriver",
+          "image": null
+        },
+        {
+          "node_id": 33,
+          "text": "Pull the wiring harness and the power cord through the chassis cut-out as a single bundle.",
+          "tools": "Hands",
+          "image": null
+        }
+      ],
+      "outputs": [
+        {
+          "node_id": 34,
+          "name": "Main PCB",
+          "weight": 55.0,
+          "weight_unit": "g",
+          "material": "FR-4 PCB + SMD components + electrolytic capacitors + triacs",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 35,
+          "name": "Wiring harness",
+          "weight": 70.0,
+          "weight_unit": "g",
+          "material": "Copper conductors + PVC insulation + nylon JST housings",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 36,
+          "name": "Power cord",
+          "weight": 140.0,
+          "weight_unit": "g",
+          "material": "3-core copper cable + PVC jacket + thermoplastic Schuko plug",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        }
+      ],
+      "continues_as": {
+        "node_id": 37,
+        "name": "Chassis (only thermoblock)",
+        "weight": 1347.0,
+        "weight_unit": "g",
+        "material": null,
+        "color": null,
+        "image": null,
+        "kept_whole": false,
+        "contained_leaf_count": null
+      },
+      "tools_required": [
+        "JST connector tool",
+        "Phillips PH0 screwdriver",
+        "Side cutters",
+        "Hands"
+      ]
+    },
+    {
+      "index": 6,
+      "operation": "Extract thermoblock",
+      "actions": [
+        {
+          "node_id": 39,
+          "text": "Verify the machine has been unplugged for at least 30 minutes so the thermoblock has fully cooled before touching the metal body.",
+          "tools": "Heat-resistant gloves (precaution)",
+          "image": null
+        },
+        {
+          "node_id": 40,
+          "text": "Disconnect the two faston terminals of the heating element from the harness, and the 2-pin JST of the safety thermostat.",
+          "tools": "Hands",
+          "image": null
+        },
+        {
+          "node_id": 41,
+          "text": "Unscrew the brass nut at the thermoblock outlet (towards the brew chamber) using a 10 mm wrench; keep a cloth nearby for residual drips.",
+          "tools": "10 mm wrench",
+          "image": null
+        },
+        {
+          "node_id": 42,
+          "text": "Unscrew the 2 Phillips PH1 screws of the thermoblock bracket on the chassis side wall.",
+          "tools": "Phillips PH1 screwdriver",
+          "image": null
+        },
+        {
+          "node_id": 43,
+          "text": "Lift the thermoblock assembly vertically out of its seat.",
+          "tools": "Hands",
+          "image": null
+        }
+      ],
+      "outputs": [
+        {
+          "node_id": 45,
+          "name": "Chassis frame",
+          "weight": 967.0,
+          "weight_unit": "g",
+          "material": "Galvanized steel + ABS brackets + EPDM feet",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        }
+      ],
+      "continues_as": {
+        "node_id": 44,
+        "name": "Thermoblock assembly",
+        "weight": 380.0,
+        "weight_unit": "g",
+        "material": null,
+        "color": null,
+        "image": null,
+        "kept_whole": false,
+        "contained_leaf_count": null
+      },
+      "tools_required": [
+        "Heat-resistant gloves (precaution)",
+        "Hands",
+        "10 mm wrench",
+        "Phillips PH1 screwdriver"
+      ]
+    },
+    {
+      "index": 7,
+      "operation": "Disassemble thermoblock",
+      "actions": [
+        {
+          "node_id": 47,
+          "text": "Clamp the aluminium body in a bench vice with soft jaws to avoid marking the surface; keep the heating-element side accessible.",
+          "tools": "Bench vice with soft jaws",
+          "image": null
+        },
+        {
+          "node_id": 48,
+          "text": "Unscrew the safety thermostat from its threaded seat on the body; it comes out as a single threaded brass capsule.",
+          "tools": "Hex key (typically 4 mm)",
+          "image": null
+        },
+        {
+          "node_id": 49,
+          "text": "Push out the heating element from its dedicated tunnel inside the aluminium body, gently tapping with a soft mallet if needed.",
+          "tools": "Soft mallet",
+          "image": null
+        },
+        {
+          "node_id": 50,
+          "text": "Separate the stainless-steel tube (water path) from the aluminium body; depending on the design, this may require a press or destructive cut.",
+          "tools": "Press / saw (destructive option)",
+          "image": null
+        }
+      ],
+      "outputs": [
+        {
+          "node_id": 63,
+          "name": "Thermoblock fasteners",
+          "weight": 20.0,
+          "weight_unit": "g",
+          "material": "Zinc-plated steel screws + silicone/graphite gaskets",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 51,
+          "name": "Heating element",
+          "weight": 45.0,
+          "weight_unit": "g",
+          "material": "Nichrome (NiCr 80/20) wire + ceramic carrier + stainless sheath",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 52,
+          "name": "Safety thermostat",
+          "weight": 15.0,
+          "weight_unit": "g",
+          "material": "Brass body + bimetal disc + ceramic insulator",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 53,
+          "name": "Aluminium body",
+          "weight": 240.0,
+          "weight_unit": "g",
+          "material": "Cast aluminium alloy (AlSi9Cu3 or similar)",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        },
+        {
+          "node_id": 54,
+          "name": "Stainless tube",
+          "weight": 60.0,
+          "weight_unit": "g",
+          "material": "Stainless steel AISI 304",
+          "color": null,
+          "image": null,
+          "kept_whole": false,
+          "contained_leaf_count": null
+        }
+      ],
+      "continues_as": null,
+      "tools_required": [
+        "Bench vice with soft jaws",
+        "Hex key (typically 4 mm)",
+        "Soft mallet",
+        "Press / saw (destructive option)"
+      ]
+    }
+  ],
+  "warnings": [],
+  "bill_of_materials": [
+    {
+      "node_id": 8,
+      "name": "Outer shell",
+      "weight": 260.0,
+      "weight_unit": "g",
+      "material": "ABS (50% PCR on Responsible variant)",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 60,
+      "name": "Water tank",
+      "weight": 150.0,
+      "weight_unit": "g",
+      "material": "SAN / transparent ABS + silicone valve",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 61,
+      "name": "Capsule drawer",
+      "weight": 60.0,
+      "weight_unit": "g",
+      "material": "ABS + stainless grid",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 62,
+      "name": "Capsule lever",
+      "weight": 130.0,
+      "weight_unit": "g",
+      "material": "Glass-filled nylon + stainless piercing plate + silicone seals",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 15,
+      "name": "Button panel",
+      "weight": 35.0,
+      "weight_unit": "g",
+      "material": "FR-4 PCB + tactile switches + LEDs + ABS cover",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 16,
+      "name": "Capsule sensor",
+      "weight": 18.0,
+      "weight_unit": "g",
+      "material": "Copper coil + ferrite core + plastic housing",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 24,
+      "name": "Vibration pump",
+      "weight": 185.0,
+      "weight_unit": "g",
+      "material": "Steel body, copper winding, brass fittings, rubber dampers",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 25,
+      "name": "Silicone tubing",
+      "weight": 22.0,
+      "weight_unit": "g",
+      "material": "Food-grade silicone + zinc-plated steel spring clamps",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 26,
+      "name": "Flow meter",
+      "weight": 28.0,
+      "weight_unit": "g",
+      "material": "ABS housing + ceramic shaft + Hall sensor PCB",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 34,
+      "name": "Main PCB",
+      "weight": 55.0,
+      "weight_unit": "g",
+      "material": "FR-4 PCB + SMD components + electrolytic capacitors + triacs",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 35,
+      "name": "Wiring harness",
+      "weight": 70.0,
+      "weight_unit": "g",
+      "material": "Copper conductors + PVC insulation + nylon JST housings",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 36,
+      "name": "Power cord",
+      "weight": 140.0,
+      "weight_unit": "g",
+      "material": "3-core copper cable + PVC jacket + thermoplastic Schuko plug",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 45,
+      "name": "Chassis frame",
+      "weight": 967.0,
+      "weight_unit": "g",
+      "material": "Galvanized steel + ABS brackets + EPDM feet",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 63,
+      "name": "Thermoblock fasteners",
+      "weight": 20.0,
+      "weight_unit": "g",
+      "material": "Zinc-plated steel screws + silicone/graphite gaskets",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 51,
+      "name": "Heating element",
+      "weight": 45.0,
+      "weight_unit": "g",
+      "material": "Nichrome (NiCr 80/20) wire + ceramic carrier + stainless sheath",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 52,
+      "name": "Safety thermostat",
+      "weight": 15.0,
+      "weight_unit": "g",
+      "material": "Brass body + bimetal disc + ceramic insulator",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 53,
+      "name": "Aluminium body",
+      "weight": 240.0,
+      "weight_unit": "g",
+      "material": "Cast aluminium alloy (AlSi9Cu3 or similar)",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    },
+    {
+      "node_id": 54,
+      "name": "Stainless tube",
+      "weight": 60.0,
+      "weight_unit": "g",
+      "material": "Stainless steel AISI 304",
+      "color": null,
+      "image": null,
+      "kept_whole": false,
+      "contained_leaf_count": null
+    }
+  ]
+}
