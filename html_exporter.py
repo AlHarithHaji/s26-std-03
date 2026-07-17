@@ -2,12 +2,12 @@ import os
 from disassembly_loader import build_guide
 
 
-def export_to_html(json_path, include_bom=False):
+def export_to_html(json_path, depth=None, include_bom=False):
     """
     Generates an interactive HTML disassembly guide with
     collapsible step cards and an embedded Dark/Light mode toggle.
     """
-    guide = build_guide(json_path, include_bom=include_bom)
+    guide = build_guide(json_path, depth=depth, include_bom=include_bom)
 
     # Pre-collect active parent components for pipeline continuity
     active_parent_names = set()

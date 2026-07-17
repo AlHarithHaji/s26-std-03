@@ -175,6 +175,43 @@ class EliteExporterApp(ctk.CTk):
         if file_path:
             self.json_file_path.set(file_path)
             self.log_write(f"Target model bound: {os.path.basename(file_path)}")
+            
+            # --- Calcolo dinamico dei livelli ---
+            try:
+                import json
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                
+                # Cerca di scoprire la profondità massima dal JSON
+                max_depth = 1
+                
+                # IPOTESI 1: Il JSON ha un array "nodes" e ogni nodo ha una chiave "level"
+                if "nodes" in data:
+                    for node in data["nodes"]:
+                        if "level" in node and isinstance(node["level"], int):
+                            if node["level"] > max_depth:
+                                max_depth = node["level"]
+                
+                # Se max_depth è rimasto 1, significa che il JSON non ha la parola "level" scritta così.
+                # In quel caso metto un default di emergenza.
+                if max_depth == 1:
+                    max_depth = 4 # Default se non trova i livelli
+                
+                # Genera i valori dinamici per la tendina
+                nuovi_valori = [f"Full ({max_depth})"]
+                for i in range(1, max_depth):
+                    label = "1 Livello" if i == 1 else f"{i} Livelli"
+                    nuovi_valori.append(label)
+                
+                # Aggiorna la tendina nell'interfaccia
+                self.depth_dropdown.configure(values=nuovi_valori)
+                self.depth_dropdown.set(nuovi_valori[0])  # Seleziona 'Full' di default
+                self.log_write(f"Graph max depth detected: {max_depth} levels.")
+
+            except Exception as e:
+                self.log_write(f"[AVVISO] Impossibile calcolare i livelli in automatico dal JSON: {e}")
+                self.depth_dropdown.configure(values=["Full", "1 Livello", "2 Livelli", "3 Livelli"])
+                self.depth_dropdown.set("Full")
 
     
 
@@ -218,7 +255,8 @@ class EliteExporterApp(ctk.CTk):
         # Evaluating dynamic DepthSpec strategies (Gestione ragionevole per livelli)
         depth_choice = self.depth_dropdown.get()
         
-        if depth_choice == "Full":
+        # startswith("Full") capisce sia "Full" che "Full (3)" che "Full (4)"
+        if depth_choice.startswith("Full"):
             spec = DepthSpec(mode=DepthMode.FULL)
         else:
             # Estrae solo il numero dalla stringa (es. prende '2' da '2 Livelli')
@@ -256,7 +294,8 @@ class EliteExporterApp(ctk.CTk):
             if self.selected_format == "DOCX":
                 if export_to_word:
                     self.log_write("[PROCESS] Executing Simone's Word Export Module...")
-                    generated_path = export_to_word(path, include_bom=bom_needed)
+                    # Passiamo depth=spec !
+                    generated_path = export_to_word(path, depth=spec, include_bom=bom_needed)
                     self.log_write(f"[SUCCESS] Word Document created successfully at: {generated_path}")
                     messagebox.showinfo("Operation Succeeded", f"Word (.docx) file generated successfully!\n\nPath:\n{generated_path}")
                 else:
@@ -266,8 +305,7 @@ class EliteExporterApp(ctk.CTk):
             elif self.selected_format == "HTML+JS":
                 if export_to_html:
                     self.log_write("[PROCESS] Executing Lin's Interactive HTML Export Module...")
-                    # Ora passiamo la variabile bom_needed letta dallo switch!
-                    generated_path = export_to_html(path, include_bom=bom_needed)
+                    generated_path = export_to_html(path, depth=spec, include_bom=bom_needed)
                     self.log_write(f"[SUCCESS] Interactive HTML Guide created successfully at: {generated_path}")
                     messagebox.showinfo("Operation Succeeded", f"Interactive HTML guide generated successfully!\n\nPath:\n{generated_path}")
                 else:
@@ -277,7 +315,7 @@ class EliteExporterApp(ctk.CTk):
             elif self.selected_format == "PPTX":
                 if export_to_pptx:
                     self.log_write("[PROCESS] Executing Ibrahim's PowerPoint Export Module...")
-                    generated_path = export_to_pptx(path, include_bom=bom_needed)
+                    generated_path = export_to_pptx(path, depth=spec, include_bom=bom_needed)
                     self.log_write(f"[SUCCESS] PowerPoint Presentation created successfully at: {generated_path}")
                     messagebox.showinfo("Operation Succeeded", f"PowerPoint (.pptx) presentation generated successfully!\n\nPath:\n{generated_path}")
                 else:
@@ -287,17 +325,12 @@ class EliteExporterApp(ctk.CTk):
             elif self.selected_format == "MD":
                 if export_to_md:
                     self.log_write("[PROCESS] Executing Markdown Export Module...")
-                    generated_path = export_to_md(path, include_bom=bom_needed)
+                    generated_path = export_to_md(path, depth=spec, include_bom=bom_needed)
                     self.log_write(f"[SUCCESS] Markdown Document created successfully at: {generated_path}")
                     messagebox.showinfo("Operation Succeeded", f"Markdown (.md) file generated successfully!\n\nPath:\n{generated_path}")
                 else:
                     self.log_write("[ERROR] 'md_exporter.py' module could not be loaded.")
                     messagebox.showerror("Export Failure", "The Markdown Exporter module is missing or contains errors.")
-
-            else:
-                # Standby simulation fallback for formats pending backend integration (PDF, TXT)
-                messagebox.showinfo("Pipeline Connected",
-                                    f"Graph model successfully tracked. Ready for down-stream {self.selected_format} processing.")
 
         except UnparsableModelError as e:
             self.log_write(f"[PARSING REFUSED] Corrupted or invalid structural data format:\n{str(e)}")

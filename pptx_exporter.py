@@ -4,12 +4,12 @@ from pptx.util import Inches
 from disassembly_loader import build_guide
 
 
-def export_to_pptx(json_path, include_bom=False):
+def export_to_pptx(json_path, depth=None, include_bom=False):
     """
     Reads the disassembly JSON file via Rubin's loader
     and exports a professional PowerPoint Presentation (.pptx).
     """
-    guide = build_guide(json_path, include_bom=include_bom)
+    guide = build_guide(json_path, depth=depth, include_bom=include_bom)
     prs = Presentation()
 
     # 1. Slide 1: Title Slide (Layout 0)

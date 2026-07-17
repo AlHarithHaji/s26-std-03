@@ -208,16 +208,6 @@ def _build_step(
 def should_stop(depth: DepthSpec, node: GraphNode, depth_level: int) -> bool:
     """
     Decide whether to STOP descending at a continuing component (keep it whole).
-
-    One predicate, parametric on DepthSpec — the traversal is identical for all
-    modes; only this answer changes. Adding a future depth mode means adding a
-    branch here, not rewriting the traversal.
-
-      FULL      : never stop (no limit at all — not "a large limit"; we do not
-                  even look at depth_level).
-      KEEP_MAIN : stop once we are past the first level of operations
-                  (depth_level >= 1) — keep main assemblies whole.
-      MANUAL    : stop at the specific nodes the user designated.
     """
     if depth.mode is DepthMode.FULL:
         return False
@@ -225,6 +215,9 @@ def should_stop(depth: DepthSpec, node: GraphNode, depth_level: int) -> bool:
         return depth_level >= 1
     if depth.mode is DepthMode.MANUAL:
         return node.id in depth.keep_whole_ids
+    if depth.mode is DepthMode.LEVEL:
+        # Ferma la discesa se abbiamo raggiunto (o superato) il livello massimo scelto
+        return depth_level >= (depth.max_level or 0)
     return False  # unknown mode: safest is to not cut
 
 

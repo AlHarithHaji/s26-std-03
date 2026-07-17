@@ -1,12 +1,12 @@
 import os
 from disassembly_loader import build_guide
 
-def export_to_md(json_path, include_bom=False):
+def export_to_md(json_path, depth=None, include_bom=False):
     """
     Reads the disassembly JSON file and exports a Markdown (.md) guide.
     """
     # Caricamento della guida ascoltando lo switch BoM dell'App
-    guide = build_guide(json_path, include_bom=include_bom)
+    guide = build_guide(json_path, depth=depth, include_bom=include_bom)
     
     # Preparazione del nome del file di output
     base_name = os.path.splitext(os.path.basename(json_path))[0]

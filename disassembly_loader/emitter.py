@@ -138,10 +138,11 @@ def _warning_to_dict(w) -> dict[str, Any]:
 def _depth_to_dict(guide: Guide) -> dict[str, Any]:
     """Serialize the applied DepthSpec for provenance."""
     if guide.depth is None:
-        return {"mode": "full", "keep_whole_ids": []}
+        return {"mode": "full", "keep_whole_ids": [], "max_level": None}
     return {
         "mode": guide.depth.mode.value,
         "keep_whole_ids": list(guide.depth.keep_whole_ids),
+        "max_level": getattr(guide.depth, "max_level", None),
     }
 
 

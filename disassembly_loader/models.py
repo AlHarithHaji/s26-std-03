@@ -321,44 +321,24 @@ class DepthMode(str, Enum):
                   level of major sub-assemblies (a fixed shallow cut).
       MANUAL    : the operator designates specific nodes to keep united; their
                   subtrees are pruned (the "sub-root" idea from section 1.2).
+      LEVEL     : stop at a specific depth level.
     """
 
     FULL = "full"
     KEEP_MAIN = "keep_main"
     MANUAL = "manual"
+    LEVEL = "level"
 
 
 @dataclass(frozen=True)
 class DepthSpec:
     """
     The depth parameter the loader receives (URS FR 3.0).
-
-    OWNERSHIP: this type is owned by the load phase (us). Alhareth's GUI
-    *populates* it from the user's choice, but the shape of the parameter is our
-    contract — the GUI collects the value, we define what it means and how it is
-    applied. Defining it here, rather than letting the GUI invent a format, keeps
-    the boundary clean and defensible.
-
-    Semantics of a cut: a node kept whole stops being a "Composite to be
-    decomposed" and becomes a terminal Leaf output. The BFS that linearizes the
-    graph simply stops descending at that node and emits it as a final block.
-    No extra IR field is needed — the cut reuses the existing leaf/output
-    representation.
-
-    Fields:
-      mode           : which of the three FR 3.0 options.
-      keep_whole_ids : for MANUAL mode, the node ids the operator wants kept as
-                       single blocks (subtrees below them are pruned). A tuple
-                       (immutable); empty for FULL / KEEP_MAIN.
-
-    INVARIANT (asserted in __post_init__): keep_whole_ids is meaningful only in
-    MANUAL mode. We do not silently ignore a misuse — better to fail loudly
-    during development than to produce a guide that quietly ignored the user's
-    selection.
     """
 
     mode: DepthMode
     keep_whole_ids: tuple[int, ...] = ()
+    max_level: Optional[int] = None
 
     def __post_init__(self) -> None:
         if self.mode is not DepthMode.MANUAL and self.keep_whole_ids:
@@ -366,6 +346,8 @@ class DepthSpec:
                 "keep_whole_ids is only valid with DepthMode.MANUAL "
                 f"(got mode={self.mode.value} with ids={self.keep_whole_ids})"
             )
+        if self.mode is DepthMode.LEVEL and self.max_level is None:
+            raise ValueError("max_level is required when using DepthMode.LEVEL")
 
 
 # =============================================================================

@@ -3,12 +3,12 @@ from disassembly_loader import build_guide
 from docx import Document 
 from docx.shared import Inches
 
-def export_to_word(json_path, include_bom=False):
+def export_to_word(json_path, depth=None, include_bom=False):
     """
     Reads the disassembly JSON file and exports a Word Document (.docx).
     """
     # Loading of the guide with the GUI's switch choice
-    guide = build_guide(json_path, include_bom=include_bom)
+    guide = build_guide(json_path, depth=depth, include_bom=include_bom)
 
     # Word document creation
     doc = Document()
