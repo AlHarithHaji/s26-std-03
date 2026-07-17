@@ -1,2 +1,12 @@
-/BialettiGioia.docx
-/BialettiGioia.pptx
+# Documenti e presentazioni
+*.pdf
+*.pptx
+*.docx
+
+# File di testo e markdown
+*.md
+*.txt
+*.html
+
+# Video
+*.mp4
