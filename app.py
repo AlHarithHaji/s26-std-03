@@ -126,22 +126,17 @@ class EliteExporterApp(ctk.CTk):
         options_title.grid(row=0, column=0, columnspan=2, padx=15, pady=(10, 0), sticky="w")
 
         ctk.CTkLabel(self.options_frame, text="Disassembly Depth:").grid(row=1, column=0, padx=15, pady=15, sticky="w")
+        
+        # Tendina semplificata per smontaggio ragionevole
         self.depth_dropdown = ctk.CTkOptionMenu(
             self.options_frame,
-            values=["Full Disassembly", "Keep Main Assemblies Whole", "Manual Pruning (IDs)"],
-            command=self.on_depth_changed
+            values=["Full", "1 Livello", "2 Livelli", "3 Livelli", "4 Livelli"]
         )
         self.depth_dropdown.grid(row=1, column=1, padx=15, pady=15, sticky="w")
 
-        self.manual_ids_label = ctk.CTkLabel(self.options_frame, text="Keep-Whole IDs (e.g., 12,17):",
-                                             text_color="gray")
-        self.manual_ids_label.grid(row=2, column=0, padx=15, pady=(0, 15), sticky="w")
-        self.manual_ids_entry = ctk.CTkEntry(self.options_frame, placeholder_text="Enter comma-separated node IDs",
-                                             state="disabled", width=250)
-        self.manual_ids_entry.grid(row=2, column=1, padx=15, pady=(0, 15), sticky="w")
-
+        # Il toggle della BoM scala direttamente alla riga 2 (abbiamo rimosso gli ID)
         self.bom_switch = ctk.CTkSwitch(self.options_frame, text="Include Bill of Materials (BoM)")
-        self.bom_switch.grid(row=3, column=0, columnspan=2, padx=15, pady=(0, 15), sticky="w")
+        self.bom_switch.grid(row=2, column=0, columnspan=2, padx=15, pady=(0, 15), sticky="w")
 
         # Section 3: Validation and Warnings Real-time Terminal Display
         self.log_frame = ctk.CTkFrame(self.content_area)
@@ -173,15 +168,7 @@ class EliteExporterApp(ctk.CTk):
             self.json_file_path.set(file_path)
             self.log_write(f"Target model bound: {os.path.basename(file_path)}")
 
-    def on_depth_changed(self, choice):
-        """Toggles manual parameter field based on selected depth mode strategy."""
-        if choice == "Manual Pruning (IDs)":
-            self.manual_ids_label.configure(text_color=("black", "white"))
-            self.manual_ids_entry.configure(state="normal")
-        else:
-            self.manual_ids_label.configure(text_color="gray")
-            self.manual_ids_entry.delete(0, 'end')
-            self.manual_ids_entry.configure(state="disabled")
+    
 
     def change_format(self, fmt):
         """Updates internal routing context state and state visual cues."""
@@ -220,21 +207,23 @@ class EliteExporterApp(ctk.CTk):
             messagebox.showinfo("Simulation Run", f"Mock execution triggered for format: {self.selected_format}")
             return
 
-        # Evaluating dynamic DepthSpec strategies
+        # Evaluating dynamic DepthSpec strategies (Gestione ragionevole per livelli)
         depth_choice = self.depth_dropdown.get()
-        if depth_choice == "Full Disassembly":
+        
+        if depth_choice == "Full":
             spec = DepthSpec(mode=DepthMode.FULL)
-        elif depth_choice == "Keep Main Assemblies Whole":
-            spec = DepthSpec(mode=DepthMode.KEEP_MAIN)
         else:
-            raw_ids = self.manual_ids_entry.get().strip()
+            # Estrae solo il numero dalla stringa (es. prende '2' da '2 Livelli')
+            livello_scelto = int(depth_choice.split()[0])
+            
+            # Assumo che aggiornerai il disassembly_loader aggiungendo DepthMode.LEVEL
+            # Se nel loader hai chiamato i parametri diversamente, cambiali qui!
             try:
-                id_tuple = tuple(int(i.strip()) for i in raw_ids.split(",") if i.strip().isdigit())
-                spec = DepthSpec(mode=DepthMode.MANUAL, keep_whole_ids=id_tuple)
-            except Exception:
-                messagebox.showerror("Invalid Input Parameters",
-                                     "Manual depth targeting requires integer IDs separated by commas.")
-                return
+                spec = DepthSpec(mode=DepthMode.LEVEL, max_level=livello_scelto)
+            except AttributeError:
+                # Fallback temporaneo se non hai ancora aggiornato il loader
+                self.log_write(f"[AVVISO] DepthMode.LEVEL non trovato nel loader. Fallback a KEEP_MAIN.")
+                spec = DepthSpec(mode=DepthMode.KEEP_MAIN)
 
         bom_needed = self.bom_switch.get()
 
@@ -269,7 +258,8 @@ class EliteExporterApp(ctk.CTk):
             elif self.selected_format == "HTML+JS":
                 if export_to_html:
                     self.log_write("[PROCESS] Executing Lin's Interactive HTML Export Module...")
-                    generated_path = export_to_html(path)
+                    # Ora passiamo la variabile bom_needed letta dallo switch!
+                    generated_path = export_to_html(path, include_bom=bom_needed)
                     self.log_write(f"[SUCCESS] Interactive HTML Guide created successfully at: {generated_path}")
                     messagebox.showinfo("Operation Succeeded", f"Interactive HTML guide generated successfully!\n\nPath:\n{generated_path}")
                 else:

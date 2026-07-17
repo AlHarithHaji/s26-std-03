@@ -2,12 +2,12 @@ import os
 from disassembly_loader import build_guide
 
 
-def export_to_html(json_path):
+def export_to_html(json_path, include_bom=False):
     """
     Generates an interactive HTML disassembly guide with
     collapsible step cards and an embedded Dark/Light mode toggle.
     """
-    guide = build_guide(json_path)
+    guide = build_guide(json_path, include_bom=include_bom)
 
     # Pre-collect active parent components for pipeline continuity
     active_parent_names = set()
@@ -82,6 +82,37 @@ def export_to_html(json_path):
         for warning in guide.warnings:
             html_content += f"<li><strong>[{warning.severity.upper()}]</strong> Rule '{warning.rule}': {warning.message}</li>"
         html_content += '</ul></div>'
+
+    # Inietta la Bill of Materials se richiesta
+    if hasattr(guide, 'bill_of_materials') and guide.bill_of_materials:
+        html_content += f"""
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <span>📋 Bill of Materials (BoM)</span>
+                <span>▼</span>
+            </div>
+            <div class="step-content">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <tr style="border-bottom: 2px solid var(--primary-color);">
+                        <th style="padding: 8px;">Component</th>
+                        <th style="padding: 8px;">Weight</th>
+                        <th style="padding: 8px;">Material</th>
+                        <th style="padding: 8px;">Color</th>
+                    </tr>
+        """
+        for item in guide.bill_of_materials:
+            w_str = f"{int(item.weight) if isinstance(item.weight, float) and item.weight.is_integer() else item.weight} g" if item.weight is not None else "—"
+            m_str = str(item.material) if item.material is not None else "—"
+            col_str = str(item.color) if item.color is not None else "—"
+            html_content += f"""
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 8px;">{item.name}</td>
+                        <td style="padding: 8px;">{w_str}</td>
+                        <td style="padding: 8px;">{m_str}</td>
+                        <td style="padding: 8px;">{col_str}</td>
+                    </tr>
+            """
+        html_content += "</table></div></div>"
 
     html_content += '<div class="steps-container">'
 
