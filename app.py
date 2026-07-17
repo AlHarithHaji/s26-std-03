@@ -15,18 +15,26 @@ except ImportError:
 # Integration with Simone's, Lin's, and Ibrahim's export modules
 try:
     from word_exporter import export_to_word
-except ImportError:
+except Exception as e:
+    print(f"\n[!!! ERRORE REALE WORD !!!] {repr(e)}\n")
     export_to_word = None
 
 try:
     from html_exporter import export_to_html
-except ImportError:
+except Exception as e:
+    print(f"\n[!!! ERRORE REALE HTML !!!] {repr(e)}\n")
     export_to_html = None
 
 try:
     from pptx_exporter import export_to_pptx
-except ImportError:
+except Exception as e:
+    print(f"\n[!!! ERRORE REALE PPTX !!!] {repr(e)}\n")
     export_to_pptx = None
+try:
+    from md_exporter import export_to_md
+except Exception as e:
+    print(f"\n[!!! ERRORE REALE MD !!!] {repr(e)}\n")
+    export_to_md = None
 
 # Global UI Appearance Settings
 ctk.set_appearance_mode("System")
@@ -248,7 +256,7 @@ class EliteExporterApp(ctk.CTk):
             if self.selected_format == "DOCX":
                 if export_to_word:
                     self.log_write("[PROCESS] Executing Simone's Word Export Module...")
-                    generated_path = export_to_word(path)
+                    generated_path = export_to_word(path, include_bom=bom_needed)
                     self.log_write(f"[SUCCESS] Word Document created successfully at: {generated_path}")
                     messagebox.showinfo("Operation Succeeded", f"Word (.docx) file generated successfully!\n\nPath:\n{generated_path}")
                 else:
@@ -269,15 +277,25 @@ class EliteExporterApp(ctk.CTk):
             elif self.selected_format == "PPTX":
                 if export_to_pptx:
                     self.log_write("[PROCESS] Executing Ibrahim's PowerPoint Export Module...")
-                    generated_path = export_to_pptx(path)
+                    generated_path = export_to_pptx(path, include_bom=bom_needed)
                     self.log_write(f"[SUCCESS] PowerPoint Presentation created successfully at: {generated_path}")
                     messagebox.showinfo("Operation Succeeded", f"PowerPoint (.pptx) presentation generated successfully!\n\nPath:\n{generated_path}")
                 else:
                     self.log_write("[ERROR] 'pptx_exporter.py' module could not be loaded.")
                     messagebox.showerror("Export Failure", "The PowerPoint Exporter module is missing or contains errors.")
 
+            elif self.selected_format == "MD":
+                if export_to_md:
+                    self.log_write("[PROCESS] Executing Markdown Export Module...")
+                    generated_path = export_to_md(path, include_bom=bom_needed)
+                    self.log_write(f"[SUCCESS] Markdown Document created successfully at: {generated_path}")
+                    messagebox.showinfo("Operation Succeeded", f"Markdown (.md) file generated successfully!\n\nPath:\n{generated_path}")
+                else:
+                    self.log_write("[ERROR] 'md_exporter.py' module could not be loaded.")
+                    messagebox.showerror("Export Failure", "The Markdown Exporter module is missing or contains errors.")
+
             else:
-                # Standby simulation fallback for formats pending backend integration (PDF, TXT, MD)
+                # Standby simulation fallback for formats pending backend integration (PDF, TXT)
                 messagebox.showinfo("Pipeline Connected",
                                     f"Graph model successfully tracked. Ready for down-stream {self.selected_format} processing.")
 

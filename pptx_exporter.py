@@ -1,14 +1,15 @@
 import os
 from pptx import Presentation
+from pptx.util import Inches
 from disassembly_loader import build_guide
 
 
-def export_to_pptx(json_path):
+def export_to_pptx(json_path, include_bom=False):
     """
     Reads the disassembly JSON file via Rubin's loader
     and exports a professional PowerPoint Presentation (.pptx).
     """
-    guide = build_guide(json_path)
+    guide = build_guide(json_path, include_bom=include_bom)
     prs = Presentation()
 
     # 1. Slide 1: Title Slide (Layout 0)
@@ -28,6 +29,36 @@ def export_to_pptx(json_path):
             p = tf.add_paragraph()
             p.text = f"• [{warning.severity.upper()}] Rule '{warning.rule}': {warning.message}"
             p.level = 0
+
+    # 2.5 Aggiunta della BoM su una slide dedicata (se richiesta)
+    if hasattr(guide, 'bill_of_materials') and guide.bill_of_materials:
+        # Layout 5 è solitamente "Title Only", perfetto per aggiungere una grossa tabella
+        slide = prs.slides.add_slide(prs.slide_layouts[5])
+        slide.shapes.title.text = "Bill of Materials"
+        
+        rows = len(guide.bill_of_materials) + 1
+        cols = 4
+        left = top = Inches(1.0)
+        width = Inches(8.0)
+        height = Inches(0.8)
+        
+        table_shape = slide.shapes.add_table(rows, cols, left, top, width, height)
+        table = table_shape.table
+        
+        # Intestazioni di colonna
+        table.cell(0, 0).text = 'Component'
+        table.cell(0, 1).text = 'Weight'
+        table.cell(0, 2).text = 'Material'
+        table.cell(0, 3).text = 'Color'
+        
+        # Popolamento
+        for i, item in enumerate(guide.bill_of_materials):
+            row_idx = i + 1
+            table.cell(row_idx, 0).text = str(item.name)
+            w_str = f"{int(item.weight) if isinstance(item.weight, float) and item.weight.is_integer() else item.weight} g" if item.weight is not None else "—"
+            table.cell(row_idx, 1).text = w_str
+            table.cell(row_idx, 2).text = str(item.material) if item.material is not None else "—"
+            table.cell(row_idx, 3).text = str(item.color) if item.color is not None else "—"
 
     # Pre-collect active parent components for tree continuity (1:1 with Simone's logic)
     active_parent_names = set()

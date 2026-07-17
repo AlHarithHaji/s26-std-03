@@ -1,24 +1,18 @@
 import os
-import sys
 from disassembly_loader import build_guide
 
-# Controllo degli argomenti in input
-if len(sys.argv) < 2:
-    print("Error: You have to pass the path of the json file you want to disassemble")
-    print("Usage: python3 md-generator.py <filename>.json")
-    sys.exit(1) 
-
-json_path = sys.argv[1]
-
-try:
-    # Caricamento della guida forzando la creazione della BOM
-    guide = build_guide(json_path, include_bom=True)
+def export_to_md(json_path, include_bom=False):
+    """
+    Reads the disassembly JSON file and exports a Markdown (.md) guide.
+    """
+    # Caricamento della guida ascoltando lo switch BoM dell'App
+    guide = build_guide(json_path, include_bom=include_bom)
     
     # Preparazione del nome del file di output
     base_name = os.path.splitext(os.path.basename(json_path))[0]
     md_path = f"{base_name}.md"
     
-    # Apriamo il file in scrittura (con encoding utf-8 per le emoji e i caratteri speciali)
+    # Apriamo il file in scrittura (con encoding utf-8 per le emoji)
     with open(md_path, "w", encoding="utf-8") as f:
         
         # === 1. TITOLO E METADATI (Product Card) ===
@@ -26,10 +20,13 @@ try:
         
         total_weight = guide.product.weight if guide.product.weight else 0
         steps_count = len(guide.steps)
-        depth_str = str(guide.depth.value) if hasattr(guide, 'depth') and hasattr(guide.depth, 'value') else "full"
         
-        
-        
+        # Estrazione sicura della Depth
+        if hasattr(guide, 'depth') and hasattr(guide.depth, 'mode'):
+            depth_str = str(guide.depth.mode)
+        else:
+            depth_str = "Custom"
+            
         f.write(f"**Total weight:** {total_weight} g · **Disassembly depth:** `{depth_str}` · **Steps:** {steps_count}\n\n")
         
         # === 2. VALIDATION WARNINGS ===
@@ -47,7 +44,6 @@ try:
             f.write("| --- | --- | --- | --- |\n")
             
             for item in guide.bill_of_materials:
-                # Formattazione pulita per evitare .0 sui pesi interi
                 w_str = f"{int(item.weight) if isinstance(item.weight, float) and item.weight.is_integer() else item.weight} g" if item.weight is not None else "—"
                 m_str = str(item.material) if item.material is not None else "—"
                 col_str = str(item.color) if item.color is not None else "—"
@@ -66,15 +62,12 @@ try:
             f.write(f"<a id=\"step-{step.index}\"></a>\n")
             f.write(f"## Step {step.index} — {step.operation}\n\n")
             
-            # Attrezzi richiesti
             if step.tools_required:
                 f.write(f"**Tools required:** {', '.join(step.tools_required)}\n\n")
             
-            # Lista delle azioni
             if step.actions:
                 for i, action in enumerate(step.actions, 1):
                     text = action.text
-                    # Rilevamento automatico parole di pericolo
                     is_danger = any(word in text.upper() for word in ["ATTENZIONE", "PERICOLO", "WARNING", "CAUTION", "DANGER"])
                     
                     if is_danger:
@@ -83,7 +76,6 @@ try:
                         f.write(f"{i}. {text}\n")
                 f.write("\n")
                 
-            # Componenti estratti (Parts obtained)
             if step.outputs:
                 f.write("### Parts obtained\n\n")
                 for out in step.outputs:
@@ -99,18 +91,12 @@ try:
                     f.write(f"- **{out.name}**{detail_str}\n")
                 f.write("\n")
                 
-            # Logica di continuazione o fine ramo
             if step.continues_as:
-                # Punta allo step successivo per la continuazione
                 next_step_idx = step.index + 1
                 f.write(f"➡️ Continue disassembling **{step.continues_as.name}** in [Step {next_step_idx}](#step-{next_step_idx})\n\n")
             else:
                 f.write("🏁 *End of this disassembly branch.*\n\n")
             
-            # Linea di separazione tra gli step
             f.write("---\n\n")
             
-    print(f"Markdown (.md) file created: {os.path.abspath(md_path)}")
-
-except Exception as e:
-    print(f"Error: {e}")
+    return os.path.abspath(md_path)
