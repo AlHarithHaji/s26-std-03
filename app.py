@@ -12,7 +12,7 @@ except ImportError:
     UnparsableModelError = Exception
     print("Warning: disassembly_loader package not found in the current directory.")
 
-# Integration with Simone's, Lin's, and Ibrahim's export modules
+
 try:
     from word_exporter import export_to_word
 except Exception as e:
