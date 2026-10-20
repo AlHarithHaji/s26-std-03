@@ -1,0 +1,72 @@
+{
+ "metadata": {
+  "product_name": "Photographed gadget",
+  "version": "1.0"
+ },
+ "shapes": [
+  {
+   "id": 1,
+   "type": "component",
+   "text": "Gadget",
+   "name": "Gadget",
+   "weight": 300,
+   "weight_unit": "g",
+   "image_path": "img/gadget.png"
+  },
+  {
+   "id": 2,
+   "type": "diamond",
+   "name": "Detach cover",
+   "text": "Detach cover"
+  },
+  {
+   "id": 3,
+   "type": "action",
+   "text": "Lift the cover tab",
+   "name": "Lift the cover tab",
+   "image_path": "https://example.org/tab.jpg"
+  },
+  {
+   "id": 4,
+   "type": "component",
+   "text": "Cover",
+   "name": "Cover",
+   "weight": 50,
+   "weight_unit": "g",
+   "image_path": "img/cover.png"
+  },
+  {
+   "id": 5,
+   "type": "component",
+   "text": "Base",
+   "name": "Base",
+   "weight": 250,
+   "weight_unit": "g"
+  },
+  {
+   "id": 6,
+   "type": "arrow",
+   "from_shape_id": 1,
+   "to_shape_id": 2
+  },
+  {
+   "id": 7,
+   "type": "arrow",
+   "from_shape_id": 2,
+   "to_shape_id": 3
+  },
+  {
+   "id": 8,
+   "type": "arrow",
+   "from_shape_id": 2,
+   "to_shape_id": 4
+  },
+  {
+   "id": 9,
+   "type": "arrow",
+   "from_shape_id": 2,
+   "to_shape_id": 5
+  }
+ ],
+ "connections": []
+}

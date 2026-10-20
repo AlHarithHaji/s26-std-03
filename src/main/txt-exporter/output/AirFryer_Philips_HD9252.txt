@@ -1,0 +1,713 @@
+======================================================================
+Philips Airfryer HD9252 — DISASSEMBLY WIZARD
+======================================================================
+
+PRODUCT
+----------------------------------------------------------------------
+Node Id: 1
+Name: Philips Airfryer HD9252
+Weight: 4500.0
+Weight Unit: g
+Material: 6
+Color: 4
+Image: images/AF_product_machine_root.jpg
+Kept Whole: False
+Contained Leaf Count: 
+
+DEPTH
+----------------------------------------------------------------------
+Mode: full, Keep Whole Ids: 
+
+WARNINGS
+----------------------------------------------------------------------
+1. Rule: mass_balance, Severity: warning, Message: Mass imbalance: listed final components total 3304 g, while the product weight is 4500 g. Some internal parts are not represented in the source model., Node Ids: 1
+
+DISASSEMBLY STEPS
+======================================================================
+
+STEP 1
+----------------------------------------------------------------------
+Operation: Remove the basket assembly
+
+Actions:
+  1. Pull the basket assembly straight out of the air fryer body.
+     Image: images/AF_action_remove_basket.jpg
+
+Removed components:
+  1. Basket Assembly
+     Node Id: 4
+     Weight: 400.0
+     Weight Unit: g
+     Material: 2
+     Color: 4
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_output_basket.jpg
+
+Remaining assembly:
+  Node Id: 36
+  Name: Body HD9252
+  Weight: 3000.0
+  Weight Unit: g
+  Material: 1
+  Color: 4
+  Image: images/AF_component_body_without_cover.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 2
+----------------------------------------------------------------------
+Operation: Remove the lower plastic cover
+
+Actions:
+  1. Insert a nylon spudger underneath the lower plastic cover.
+     Image: images/AF_action_pry_cover.jpg
+  2. Lever the tool gently and release each of the eight retaining tabs.
+     Image: images/AF_action_release_tabs.jpg
+
+Removed components:
+  1. Plastic cover (8 hooks)
+     Node Id: 40
+     Weight: 120.0
+     Weight Unit: g
+     Material: 1
+     Color: 4
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_component_body_without_cover.jpg
+
+Remaining assembly:
+  Node Id: 241
+  Name: Body without cover
+  Weight: 2880.0
+  Weight Unit: g
+  Material: 1
+  Color: 4
+  Image: images/AF_component_body_without_cover.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 3
+----------------------------------------------------------------------
+Operation: Remove the four lower housing screws
+
+Actions:
+  1. Unscrew the four 12.4 mm angular screws using a JIS #1 screwdriver.
+     Image: images/AF_shared_unscrew_base.jpg
+
+Removed components:
+  1. Angular Housing Screws (x4, 12.4 mm)
+     Node Id: 44
+     Weight: 8.0
+     Weight Unit: g
+     Material: 2
+     Color: 8
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_shared_unscrew_base.jpg
+
+Remaining assembly:
+  Node Id: 246
+  Name: Body without cover
+  Weight: 2872.0
+  Weight Unit: g
+  Material: 1
+  Color: 4
+  Image: images/AF_component_body_without_cover.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 4
+----------------------------------------------------------------------
+Operation: Separate the top housing
+
+Actions:
+  1. Lift the top housing away from the lower body after all fasteners are released.
+     Image: images/AF_action_remove_cover.jpg
+
+Remaining assembly:
+  Node Id: 147
+  Name: Inferior body
+  Weight: 2622.0
+  Weight Unit: g
+  Material: 1
+  Color: 4
+  Image: images/AF_component_body_without_cover.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 5
+----------------------------------------------------------------------
+Operation: Remove the transformer mounting screws
+
+Actions:
+  1. Unscrew the two 39.5 mm transformer mounting screws.
+     Image: images/AF_action_unscrew_tray.jpg
+
+Removed components:
+  1. Transformer Mounting Screws (x2, 39.5 mm)
+     Node Id: 58
+     Weight: 10.0
+     Weight Unit: g
+     Material: 2
+     Color: 8
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_output_transformer.jpg
+
+Remaining assembly:
+  Node Id: 152
+  Name: Inferior body unscrewed
+  Weight: 2612.0
+  Weight Unit: g
+  Material: 2
+  Color: 8
+  Image: images/AF_component_body_without_cover.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 6
+----------------------------------------------------------------------
+Operation: Remove the transformer top bracket
+
+Actions:
+  1. Lift the transformer top bracket away from the lower body.
+     Image: images/AF_output_transformer_top_piece.jpg
+
+Removed components:
+  1. Transformer top piece
+     Node Id: 62
+     Weight: 40.0
+     Weight Unit: g
+     Material: 2
+     Color: 8
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_output_transformer_top_piece.jpg
+
+Remaining assembly:
+  Node Id: 263
+  Name: Inferior body without top piece
+  Weight: 2612.0
+  Weight Unit: g
+  Material: 2
+  Color: 8
+  Image: images/AF_component_body_without_cover.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 7
+----------------------------------------------------------------------
+Operation: Disconnect the transformer wiring
+
+Actions:
+  1. Remove the brown and white wires attached to the transformer.
+     Image: images/AF_output_action_disconnect_wiring.jpg
+  2. Disconnect the wire terminals from the transformer.
+     Image: images/AF_output_action_disconnect_wiring.jpg
+
+Removed components:
+  1. Transformer Wiring (Brown and White)
+     Node Id: 66
+     Weight: 20.0
+     Weight Unit: g
+     Material: 6
+     Color: 10
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_output_action_disconnect_wiring.jpg
+
+Remaining assembly:
+  Node Id: 272
+  Name: Inferior body without cables
+  Weight: 2592.0
+  Weight Unit: g
+  Material: 2
+  Color: 8
+  Image: images/AF_component_body_without_cover.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 8
+----------------------------------------------------------------------
+Operation: Extract the transformer
+
+Actions:
+  1. Lift the transformer out of the lower housing.
+     Image: images/AF_output_transformer.jpg
+
+Removed components:
+  1. Transformer
+     Node Id: 70
+     Weight: 600.0
+     Weight Unit: g
+     Material: 2
+     Color: 8
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_output_transformer.jpg
+  2. Inferior body without transformer
+     Node Id: 277
+     Weight: 1992.0
+     Weight Unit: g
+     Material: 2
+     Color: 8
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_output_transformer.jpg
+
+
+STEP 9
+----------------------------------------------------------------------
+Operation: Remove the control-panel cover
+
+Actions:
+  1. Insert a nylon spudger underneath the control-panel cover.
+     Image: images/AF_action_pry_top.jpg
+  2. Lever the tool gently and pop the panel free.
+     Image: images/AF_action_remove_panel.jpg
+
+Removed components:
+  1. Control-Panel Cover
+     Node Id: 52
+     Weight: 30.0
+     Weight Unit: g
+     Material: 1
+     Color: 4
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_output_rear_panel.jpg
+
+Remaining assembly:
+  Node Id: 256
+  Name: Top without panel
+  Weight: 220.0
+  Weight Unit: g
+  Material: 1
+  Color: 4
+  Image: images/AF_component_body_without_cover.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 10
+----------------------------------------------------------------------
+Operation: Remove the touch-control motherboard
+
+Actions:
+  1. Release the motherboard from its mounting points and lift it out.
+     Image: images/AF_output_motherboard_touchscreen.jpg
+
+Removed components:
+  1. Top without motherboard
+     Node Id: 261
+     Weight: 170.0
+     Weight Unit: g
+     Material: 1
+     Color: 4
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_output_motherboard_touchscreen.jpg
+  2. Touch-Control Motherboard
+     Node Id: 56
+     Weight: 50.0
+     Weight Unit: g
+     Material: 8
+     Color: 2
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_output_motherboard_touchscreen.jpg
+
+
+STEP 11
+----------------------------------------------------------------------
+Operation: Separate the basket from the tray
+
+Actions:
+  1. Pull the basket away from the tray-and-handle assembly.
+     Image: images/AF_action_remove_basket.jpg
+
+Remaining assembly:
+  Node Id: 200
+  Name: Tray with handle
+  Weight: 250.0
+  Weight Unit: g
+  Material: 2
+  Color: 4
+  Image: images/AF_component_tray_handle.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 12
+----------------------------------------------------------------------
+Operation: Separate the tray and handle
+
+Actions:
+  1. Unscrew the tray-handle fasteners and separate the tray from the handle.
+     Image: images/AF_action_unscrew_tray.jpg
+
+Removed components:
+  1. Top Handle Screws (x2, 14.8 mm)
+     Node Id: 10
+     Weight: 4.0
+     Weight Unit: g
+     Material: 2
+     Color: 8
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_component_body_without_cover.jpg
+  2. Tray
+     Node Id: 207
+     Weight: 100.0
+     Weight Unit: g
+     Material: 2
+     Color: 4
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_component_tray_handle.jpg
+
+Remaining assembly:
+  Node Id: 6
+  Name: Handle
+  Weight: 150.0
+  Weight Unit: g
+  Material: 1
+  Color: 4
+  Image: images/AF_component_tray_handle.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 13
+----------------------------------------------------------------------
+Operation: Remove the handle screws
+
+Actions:
+  1. Unscrew the four 14.8 mm frontal screws from the handle.
+     Image: images/AF_action_unscrew_tray.jpg
+
+Removed components:
+  1. Front Handle Screws (x4, 14.8 mm)
+     Node Id: 11
+     Weight: 8.0
+     Weight Unit: g
+     Material: 2
+     Color: 8
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_shared_unscrew_base.jpg
+
+Remaining assembly:
+  Node Id: 215
+  Name: Handle without screws
+  Weight: 142.0
+  Weight Unit: g
+  Material: 1
+  Color: 4
+  Image: images/AF_shared_unscrew_base.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 14
+----------------------------------------------------------------------
+Operation: Remove the handle rear panel
+
+Actions:
+  1. Insert a nylon spudger under the rear panel and carefully pry it free.
+     Image: images/AF_action_pry_cover.jpg
+
+Removed components:
+  1. Rear panel
+     Node Id: 16
+     Weight: 25.0
+     Weight Unit: g
+     Material: 1
+     Color: 4
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_output_rear_panel.jpg
+
+Remaining assembly:
+  Node Id: 217
+  Name: Handle without panel
+  Weight: 127.0
+  Weight Unit: g
+  Material: 1
+  Color: 4
+  Image: images/AF_component_tray_handle.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 15
+----------------------------------------------------------------------
+Operation: Remove the handle spring
+
+Actions:
+  1. Push the spring down to release its tension.
+     Image: images/AF_action_remove_spring.jpg
+  2. Slide the spring out of the handle assembly.
+     Image: images/AF_shared_spring_latch.jpg
+
+Removed components:
+  1. Spring
+     Node Id: 19
+     Weight: 10.0
+     Weight Unit: g
+     Material: 1
+     Color: 8
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_shared_spring_latch.jpg
+
+Remaining assembly:
+  Node Id: 225
+  Name: Handle without spring
+  Weight: 117.0
+  Weight Unit: g
+  Material: 1
+  Color: 4
+  Image: images/AF_shared_spring_latch.jpg
+  Kept Whole: False
+  Contained Leaf Count: 
+
+
+STEP 16
+----------------------------------------------------------------------
+Operation: Separate the latch components
+
+Actions:
+  1. Remove the latch front, latch button and remaining handle shell.
+     Image: images/AF_shared_spring_latch.jpg
+
+Removed components:
+  1. Latch Front
+     Node Id: 22
+     Weight: 10.0
+     Weight Unit: g
+     Material: 1
+     Color: 4
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_shared_spring_latch.jpg
+  2. Latch Button
+     Node Id: 24
+     Weight: 10.0
+     Weight Unit: g
+     Material: 1
+     Color: 8
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_shared_spring_latch.jpg
+  3. Handle without latch and button
+     Node Id: 228
+     Weight: 97.0
+     Weight Unit: g
+     Material: 1
+     Color: 4
+     Kept Whole: False
+     Contained Leaf Count: 
+     Image: images/AF_shared_spring_latch.jpg
+
+
+BILL OF MATERIALS
+======================================================================
+
+1. Basket Assembly
+   Node Id: 4
+   Weight: 400.0
+   Weight Unit: g
+   Material: 2
+   Color: 4
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_output_basket.jpg
+
+2. Plastic cover (8 hooks)
+   Node Id: 40
+   Weight: 120.0
+   Weight Unit: g
+   Material: 1
+   Color: 4
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_component_body_without_cover.jpg
+
+3. Angular Housing Screws (x4, 12.4 mm)
+   Node Id: 44
+   Weight: 8.0
+   Weight Unit: g
+   Material: 2
+   Color: 8
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_shared_unscrew_base.jpg
+
+4. Transformer Mounting Screws (x2, 39.5 mm)
+   Node Id: 58
+   Weight: 10.0
+   Weight Unit: g
+   Material: 2
+   Color: 8
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_output_transformer.jpg
+
+5. Transformer top piece
+   Node Id: 62
+   Weight: 40.0
+   Weight Unit: g
+   Material: 2
+   Color: 8
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_output_transformer_top_piece.jpg
+
+6. Transformer Wiring (Brown and White)
+   Node Id: 66
+   Weight: 20.0
+   Weight Unit: g
+   Material: 6
+   Color: 10
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_output_action_disconnect_wiring.jpg
+
+7. Transformer
+   Node Id: 70
+   Weight: 600.0
+   Weight Unit: g
+   Material: 2
+   Color: 8
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_output_transformer.jpg
+
+8. Inferior body without transformer
+   Node Id: 277
+   Weight: 1992.0
+   Weight Unit: g
+   Material: 2
+   Color: 8
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_output_transformer.jpg
+
+9. Control-Panel Cover
+   Node Id: 52
+   Weight: 30.0
+   Weight Unit: g
+   Material: 1
+   Color: 4
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_output_rear_panel.jpg
+
+10. Top without motherboard
+   Node Id: 261
+   Weight: 170.0
+   Weight Unit: g
+   Material: 1
+   Color: 4
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_output_motherboard_touchscreen.jpg
+
+11. Touch-Control Motherboard
+   Node Id: 56
+   Weight: 50.0
+   Weight Unit: g
+   Material: 8
+   Color: 2
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_output_motherboard_touchscreen.jpg
+
+12. Top Handle Screws (x2, 14.8 mm)
+   Node Id: 10
+   Weight: 4.0
+   Weight Unit: g
+   Material: 2
+   Color: 8
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_component_body_without_cover.jpg
+
+13. Tray
+   Node Id: 207
+   Weight: 100.0
+   Weight Unit: g
+   Material: 2
+   Color: 4
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_component_tray_handle.jpg
+
+14. Front Handle Screws (x4, 14.8 mm)
+   Node Id: 11
+   Weight: 8.0
+   Weight Unit: g
+   Material: 2
+   Color: 8
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_shared_unscrew_base.jpg
+
+15. Rear panel
+   Node Id: 16
+   Weight: 25.0
+   Weight Unit: g
+   Material: 1
+   Color: 4
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_output_rear_panel.jpg
+
+16. Spring
+   Node Id: 19
+   Weight: 10.0
+   Weight Unit: g
+   Material: 1
+   Color: 8
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_shared_spring_latch.jpg
+
+17. Latch Front
+   Node Id: 22
+   Weight: 10.0
+   Weight Unit: g
+   Material: 1
+   Color: 4
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_shared_spring_latch.jpg
+
+18. Latch Button
+   Node Id: 24
+   Weight: 10.0
+   Weight Unit: g
+   Material: 1
+   Color: 8
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_shared_spring_latch.jpg
+
+19. Handle without latch and button
+   Node Id: 228
+   Weight: 97.0
+   Weight Unit: g
+   Material: 1
+   Color: 4
+   Kept Whole: False
+   Contained Leaf Count: 
+   Image: images/AF_shared_spring_latch.jpg

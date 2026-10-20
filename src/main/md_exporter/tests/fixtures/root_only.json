@@ -1,0 +1,17 @@
+{
+ "metadata": {
+  "product_name": "Unopenable brick",
+  "version": "1.0"
+ },
+ "shapes": [
+  {
+   "id": 1,
+   "type": "component",
+   "text": "Brick",
+   "name": "Brick",
+   "weight": 500,
+   "weight_unit": "g"
+  }
+ ],
+ "connections": []
+}

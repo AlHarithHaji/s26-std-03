@@ -1,0 +1,51 @@
+{
+ "metadata": {
+  "product_name": "",
+  "version": "1.0"
+ },
+ "shapes": [
+  {
+   "id": 1,
+   "type": "component",
+   "text": "Root thing",
+   "name": "Root thing"
+  },
+  {
+   "id": 2,
+   "type": "diamond",
+   "name": "Open it",
+   "text": "Open it"
+  },
+  {
+   "id": 3,
+   "type": "component",
+   "text": "Half A",
+   "name": "Half A"
+  },
+  {
+   "id": 4,
+   "type": "component",
+   "text": "Half B",
+   "name": "Half B"
+  },
+  {
+   "id": 5,
+   "type": "arrow",
+   "from_shape_id": 1,
+   "to_shape_id": 2
+  },
+  {
+   "id": 6,
+   "type": "arrow",
+   "from_shape_id": 2,
+   "to_shape_id": 3
+  },
+  {
+   "id": 7,
+   "type": "arrow",
+   "from_shape_id": 2,
+   "to_shape_id": 4
+  }
+ ],
+ "connections": []
+}

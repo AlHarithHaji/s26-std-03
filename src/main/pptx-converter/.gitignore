@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Keep the official example, ignore temporary local exports.
+output/*.pptx
+!output/example_air_fryer.pptx
